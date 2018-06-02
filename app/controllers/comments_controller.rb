@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_movie
+before_action :set_movie
 before_action :set_comment, only: [:show, :update, :edit, :delete]
 
   def index
@@ -10,7 +10,8 @@ before_action :set_comment, only: [:show, :update, :edit, :delete]
   end
 
   def new
-    @comment = @movie.comments.new
+    @comment = Comment.new
+    # @comment = @movie.comments.new
     render partial: "form"
   end
 
@@ -22,9 +23,9 @@ before_action :set_comment, only: [:show, :update, :edit, :delete]
   @comment = @movie.comments.new(comment_params)
 
     if @comment.save
-      redirect_to [@movie, @topic]
-    else 
-      render :new
+      redirect_to [@movie, @comment]
+    else
+      render partial: "form"
     end
   end
 
@@ -52,6 +53,6 @@ def set_comment
 
 
   def comment_params
-    params.require(:comment).permit(:user_id, :movie_id, :body)
+    params.require(:comment).permit( :body)
   end
 end

@@ -6,6 +6,13 @@
 <li>Duration:<%= @movie.duration %></li>
 <li>Genre:<%= @movie.genre %></li>
 <li>Description:<%= @movie.description%></li>
+
+<h2>Comments</h2>
+
+<%= link_to 'Create a new comment', new_movie_comment_path(@movie)%>
+<% @movie.comments.each do |comment|%>
+    <li><%= link_to comment.body, [@movie, comment] %></li>
+<% end %>
 <li>Trailer: <iframe width="520" height="445" src= <%= @movie.trailer %> </li>
 </ul>
 
