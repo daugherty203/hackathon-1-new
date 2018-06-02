@@ -1,4 +1,6 @@
-<h1>Movies</h1>
+<h2> Welcome <%= current_user.first_name %>!</h2>
+<%= button_to 'Log Out', destroy_user_session_path, method: :delete %>
+<h2>Movie Library</h2>
 <ul>
     <% @movies.each do |movie|%>
     <li><%= link_to movie.title, movie %></li>

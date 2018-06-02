@@ -1,5 +1,6 @@
-<h1>Comments#index</h1>
+<h1>Comments</h1>
 
+<%= link_to 'Create a new comment', new_movie_comment_path(@movie)%>
 <% @comments.each do |comment|%>
-    <li><%= link_to comment.body, comment %></li>
+    <li><%= link_to comment.body, [@movie, comment] %></li>
 <% end %>

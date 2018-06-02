@@ -1,0 +1,8 @@
+<h1>Create a comment</h1>
+<hr />
+<%= form_for [@movie, @comment] do |f| %>
+ <%= f.label :body %>
+ <%= f.text_area :body, required: true, autofocus: true %>
+ <%= f.submit %>
+
+<% end %>

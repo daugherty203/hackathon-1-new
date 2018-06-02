@@ -1,2 +1,5 @@
-<h1>Comments#show</h1>
-<p>Find me in app/views/comments/show.html.erb</p>
+<h1><%= @movie.title %> - <%= @comment.user_id %></h1>
+<p><%= @comment.body %></p>
+<%= link_to ‘Edit Comment’, edit_movie_comment_path([@movie, @comment]) %>
+<%= link_to ‘Delete Comment’, [@movie, @comment], method: :delete %>
+<%= link_to ‘Back To Comment’, movie_comment_path(@movie) %>
